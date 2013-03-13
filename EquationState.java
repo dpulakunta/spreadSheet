@@ -1,15 +1,17 @@
+/* ClassName : EquationState
+ * 
+ * Created by: Dharmendhar Pulakunta
+ * Red ID: 816324464
+ * class implementing the interface CellState
+ * we print the expression value of the cell.
+ */
 package com.sdsu.spreadSheet;
 
-import javax.swing.JTextField;
-
-public class EquationState extends CellState {
-
-
+public class EquationState implements CellState {
+	
 	@Override
-	public void display(JTextField cell) {
-		System.out.println("We will display the eqn");
-		if(!getValue().equals(""))
-			cell.setText(getValue());
+	public void display(SpreadSheetCell completeCell) {
+		if(!completeCell.getValue().equals(""))
+			completeCell.cell.setText(completeCell.getValue());
 	}
-
 }

@@ -1,18 +1,15 @@
 package com.sdsu.spreadSheet;
 
-import java.awt.Dimension;
+
 import java.awt.FlowLayout;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+
 
 public class SpreadSheet {
 	JFrame mainWindow = new JFrame("SpreadSheet");
@@ -21,8 +18,7 @@ public class SpreadSheet {
 	JButton equationViewButton = new JButton("Equation");
 	JButton valueViewButton = new JButton("Value");
 	JButton undoButton = new JButton("Undo");
-	CellState eqnState = new EquationState();
-	CellState valState = new ValueState();
+
 	Map<String,SpreadSheetCell> cellValues = new HashMap<String, SpreadSheetCell>();
 	CommandManager commandController = new CommandManager();
 
@@ -60,23 +56,27 @@ public class SpreadSheet {
 
 		@Override
 		public void actionPerformed(ActionEvent pressed) {
-			String buttonWaspressedBy = pressed.getSource().toString();
-			if(buttonWaspressedBy.contains("Equation")){
-				System.out.println("Equation View will be showed");
-				for(int i=0;i<9;i++){
-					nineCells[i].setState("equation"); 
-					nineCells[i].display();
-				}
-				
-			}else if(buttonWaspressedBy.contains("Value")){
-				System.out.println("Value View will be showed");
-				for(int i=0;i<9;i++){
-					nineCells[i].setState("valState");
-					nineCells[i].display();
-				}
-			}else{
-				commandController.undo();
-			}
+			String buttonPressed = pressed.getSource().toString();
+			operationToPerform(buttonPressed);
 		}
+
 	};
+	public void operationToPerform(String buttonPressed) {
+		if(buttonPressed.contains("Equation")){
+			System.out.println("Equation View will be showed");
+			for(int i=0;i<9;i++){
+				nineCells[i].setState("equation"); 
+			}
+			nineCells[0].display();
+		}else if(buttonPressed.contains("Value")){
+			System.out.println("Value View will be showed");
+			for(int i=0;i<9;i++){
+				nineCells[i].setState("valState");
+			}
+			nineCells[0].display();
+		}else{
+			commandController.undo();
+		}
+		
+	}
 }

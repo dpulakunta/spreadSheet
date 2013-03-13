@@ -8,7 +8,7 @@ import com.sdsu.spreadSheet.interpreter.PostfixExpression;
  
 public class InterpreterExample {
     public static void main(String[] args) {
-        String expression = "w x + c + 2 *";
+        String expression = "w x + c + ";
         ExpressionParser sentence = new ExpressionParser(expression);
         Map<String,PostfixExpression> variables = new HashMap<String,PostfixExpression>();
         variables.put("w", new Number(5));
@@ -16,7 +16,7 @@ public class InterpreterExample {
         variables.put("c", new Number(8));
         
         double result = sentence.evaluate(variables);
-        System.out.println(result+" have fun");
+        System.out.println("Answer:"+result);
         SpreadSheet spreadSheetGui = new SpreadSheet();
         spreadSheetGui.showGui();
 

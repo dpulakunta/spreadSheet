@@ -1,14 +1,17 @@
+/* ClassName : ValueState
+ * 
+ * Created by: Dharmendhar Pulakunta
+ * Red ID: 816324464
+ * class implementing the interface CellState
+ * we print the numerical value of the cell.
+ */
 package com.sdsu.spreadSheet;
 
-import javax.swing.JTextField;
-
-public class ValueState extends CellState {
+public class ValueState implements CellState {
 
 	@Override
-	public void display(JTextField cell) {
-		System.out.println("We will display the values");
-		if(!getValue().equals(""))
-			cell.setText(getValue());
+	public void display(SpreadSheetCell completeCell) {
+		if(!completeCell.getIntVal().equals(""))
+			completeCell.cell.setText(completeCell.getIntVal());
 	}
-
 }

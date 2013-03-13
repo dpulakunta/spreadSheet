@@ -1,4 +1,4 @@
-/* ClassName : Minus
+/* ClassName : Multiply
  * 
  * Created by: Dharmendhar Pulakunta
  * Red ID: 816324464
@@ -12,7 +12,7 @@ package com.sdsu.spreadSheet.interpreter;
 import java.util.Map;
 
 public class Multiply implements PostfixExpression {
-	//divide takes two operands it is important to store them correctly
+	//divide takes two operands order does not matter
 	PostfixExpression leftHandVar;
 	PostfixExpression rightHandVar;
 	
@@ -22,6 +22,7 @@ public class Multiply implements PostfixExpression {
 	}
 
 	@Override
+	//In evaluate we are retrieving the values and multiplying them
 	public double evaluate(Map<String, PostfixExpression> exp) {
 		return leftHandVar.evaluate(exp) * rightHandVar.evaluate(exp);
 	}

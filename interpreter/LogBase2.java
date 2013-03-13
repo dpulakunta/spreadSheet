@@ -14,7 +14,7 @@ import java.util.Map;
 //log takes only one operand so we have only one value variable
 public class LogBase2 implements PostfixExpression {
 	PostfixExpression variable;
-	
+
 	public LogBase2(PostfixExpression var) {
 		variable = var;
 	}
@@ -23,7 +23,7 @@ public class LogBase2 implements PostfixExpression {
 	public double evaluate(Map<String, PostfixExpression> exp) {
 		//evaluate function call will get the value
 		return (Math.log(variable.evaluate(exp))/Math.log(2));
-		
+
 	}
 
 }

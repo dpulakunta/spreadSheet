@@ -1,3 +1,10 @@
+/* ClassName : ExpressionParser
+ * 
+ * Created by: Dharmendhar Pulakunta
+ * Red ID: 816324464
+ * 
+ * parsing the expression and creating the tree
+ */
 package com.sdsu.spreadSheet.interpreter;
 
 import java.util.Map;
@@ -9,6 +16,7 @@ public class ExpressionParser implements PostfixExpression {
 
 	public ExpressionParser(String expression) {
 		Stack<PostfixExpression> expressionStack = new Stack<PostfixExpression>();
+		//creating the expression tree
 		for (String token : expression.split(" ")) {
 			if  (token.equals("+")) {
 				PostfixExpression right = expressionStack.pop();
@@ -55,12 +63,10 @@ public class ExpressionParser implements PostfixExpression {
 	}
 	private boolean isNumeric(String input) {
 		try {
-			//Integer.parseInt(input);
 			Double.parseDouble(input);
 			return true;
 		}
 		catch (NumberFormatException e) {
-			// s is not numeric
 			return false;
 		}
 	}

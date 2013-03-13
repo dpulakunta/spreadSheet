@@ -1,3 +1,11 @@
+/* ClassName : Plus
+ * 
+ * Created by: Dharmendhar Pulakunta
+ * Red ID: 816324464
+ * 
+ * to evaluate the addition rules, we get the values for leftVar and rightVar
+ * and the values obtained.
+ */
 package com.sdsu.spreadSheet.interpreter;
 
 import java.util.Map;
